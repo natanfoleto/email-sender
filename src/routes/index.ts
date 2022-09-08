@@ -1,9 +1,9 @@
-import { Router } from 'express';
+import { Router } from 'express'
 
-import { webhookRoutes } from './webhook.routes';
+import { emailRoutes } from './email.routes'
 
-const router = Router();
+const router = Router()
 
-router.use('/webhook', webhookRoutes);
+router.use('/email', emailRoutes)
 
-export { router };
+export { router }

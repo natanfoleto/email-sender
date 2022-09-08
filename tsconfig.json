@@ -18,7 +18,6 @@
     "baseUrl": ".",
     "paths": {
 			"@actions/*": ["./src/actions/*"],
-			"@plugins/*": ["./src/plugins/*"],
 			"@dtos/*": ["./src/entities/dtos/*"],
 			"@config/*": ["./src/config/*"],
 			"@helper/*": ["./src/helper/*"],

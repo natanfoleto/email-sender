@@ -1,5 +1,5 @@
-import env from '@config/config';
+import env from '@config/config'
 
-import app from '@shared/app';
+import app from '@shared/app'
 
-app.listen(env.PORT);
+app.listen(env.PORT)
