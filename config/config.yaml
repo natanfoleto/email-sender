@@ -1,0 +1,33 @@
+app:
+  PORT: 3333
+  VERSION: '/v1'
+  MAX_REQUEST_SIZE: '15mb'
+  DATABASE_URL: 'postgresql://postgres:admin@localhost:5432/linda'
+
+redis:
+  REDIS_USE_CLUSTER: false
+  REDIS_URL: 'redis://localhost:6379'
+
+######################################################################
+## Configurações YENV ref: https://www.npmjs.com/package/yenv
+######################################################################
+
+# Development config uses base config
+development:
+  # We can compose more than one at a time.
+  ~compose: [ app, redis ]
+  # Declare additional settings..
+  DEV_MODE: true
+
+# Development config uses base config
+test:
+  # We can compose more than one at a time.
+  ~compose: [ app, redis ]
+  # Declare additional settings..
+  DEV_MODE: true
+
+# Production config composes and overrides other sections
+production:
+  ~compose: development
+  DEV_MODE: false
+

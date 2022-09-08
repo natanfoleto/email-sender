@@ -1,0 +1,50 @@
+{
+	"env": {
+		"es2021": true,
+		"node": true
+	},
+	"extends": ["airbnb-base", "prettier"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"paths": ["src"],
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			}
+		}
+	},
+	"plugins": ["@typescript-eslint", "prettier"],
+	"rules": {
+		"import/extensions": "off",
+		"import/no-unresolved": "off",
+		"import/prefer-default-export": "off",
+		"class-methods-use-this": "off",
+		"camelcase": "off",
+		"no-console": "off",
+		"no-unused-vars": [
+			"error",
+			{
+				"vars": "all",
+				"args": "none",
+				"ignoreRestSiblings": false,
+				"caughtErrors": "none"
+			}
+		],
+		"lines-between-class-members": [
+			"error",
+			"always",
+			{ "exceptAfterSingleLine": true }
+		]
+	},
+	"overrides": [
+		{
+			"files": ["**/*.spec.ts", "**/*.spec.tsx"],
+			"env": {
+				"jest": true
+			}
+		}
+	]
+}
