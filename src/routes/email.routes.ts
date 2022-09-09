@@ -6,6 +6,6 @@ import { SenderController } from '@modules/email/useCases/sender/senderControlle
 const upload = multer()
 const emailRoutes = Router()
 
-emailRoutes.get('/', upload.array('file', 2), new SenderController().handle)
+emailRoutes.post('/', upload.array('file', 2), new SenderController().handle)
 
 export { emailRoutes }

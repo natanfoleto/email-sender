@@ -1,12 +1,20 @@
 import { Express } from 'express'
+import { send } from '@libs/nodemailer'
 
 class SenderUseCase {
-  async execute (file_email: Express.Multer.File, file_html: Express.Multer.File) {
+  async execute (config: Express.Multer.File, list: Express.Multer.File) {
     try {
-      const emails = file_email.buffer.toString().split(/\r?\n|\r|\n/g)
-      const html = file_html.buffer.toString()
+      const options = JSON.parse(config.buffer.toString())
+      const emails = list.buffer.toString().split(/\r?\n|\r|\n/g)
 
-      return { emails, html }
+      await send(
+        options,
+        emails
+      )
+
+      return {
+        emails, options
+      }
     } catch (error) {
       console.log(error)
 
